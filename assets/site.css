@@ -2,10 +2,10 @@
    Display: Bodoni Moda 500/600 (Latin subset, SIL OFL). Text: Manrope. Khmer: Noto Sans Khmer. All self-hosted. */
 @font-face{font-family:'Bodoni Moda';font-weight:500;font-display:swap;src:url(fonts/BodoniModa-500.woff2) format('woff2')}
 @font-face{font-family:'Bodoni Moda';font-weight:600;font-display:swap;src:url(fonts/BodoniModa-600.woff2) format('woff2')}
-@font-face{font-family:'Manrope';font-weight:400;font-display:swap;src:url(fonts/Manrope-400.ttf) format('truetype')}
-@font-face{font-family:'Manrope';font-weight:600;font-display:swap;src:url(fonts/Manrope-600.ttf) format('truetype')}
-@font-face{font-family:'Noto Sans Khmer';font-weight:400;font-display:swap;src:url(fonts/NotoSansKhmer-400.ttf) format('truetype')}
-@font-face{font-family:'Noto Sans Khmer';font-weight:600;font-display:swap;src:url(fonts/NotoSansKhmer-600.ttf) format('truetype')}
+@font-face{font-family:'Manrope';font-weight:400;font-display:swap;src:url(fonts/Manrope-400.woff2) format('woff2')}
+@font-face{font-family:'Manrope';font-weight:600;font-display:swap;src:url(fonts/Manrope-600.woff2) format('woff2')}
+@font-face{font-family:'Noto Sans Khmer';font-weight:400;font-display:swap;src:url(fonts/NotoSansKhmer-400.woff2) format('woff2')}
+@font-face{font-family:'Noto Sans Khmer';font-weight:600;font-display:swap;src:url(fonts/NotoSansKhmer-600.woff2) format('woff2')}
 :root{--forest:#101311;--forest-d:#080a09;--charcoal:#1a1d1b;--parchment:#f7f1e4;--sand:#ede4cf;--paper:#fffaf1;--gold:#c9a24d;--gold-l:#e3c887;--gold-t:#765616;--ink:#16130f;--muted:#4d463a;--line:#dccfae;
 --serif:'Bodoni Moda',Georgia,'Times New Roman',serif;--sans:'Manrope',Arial,Helvetica,sans-serif;--khmer:'Noto Sans Khmer','Manrope',Arial,sans-serif;--gut:clamp(20px,5vw,72px)}
 *{box-sizing:border-box}
