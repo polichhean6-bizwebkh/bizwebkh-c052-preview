@@ -505,7 +505,7 @@ body.hero-in-view .sticky-cta{display:none}
 .tile-grid .strip-card strong{font-size:clamp(22px,1.8vw,28px)}
 .tile-grid .strip-go{margin-top:18px}
 .coverage{background:radial-gradient(ellipse at 85% 50%,rgba(201,162,77,.14),transparent 55%),linear-gradient(180deg,#0b0a08,#14110c);border-top:1px solid #3a3220;border-bottom:1px solid #3a3220;padding:clamp(52px,6vw,96px) var(--gut)}
-.coverage-in{max-width:1640px;margin:auto;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,72px);align-items:center}
+.coverage-in{max-width:1640px;margin:auto;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);gap:clamp(24px,4vw,72px);align-items:center}
 .coverage h2{color:#fbf6ea;font-size:clamp(34px,3.8vw,58px);margin-bottom:18px}
 .coverage p{color:#d8d0bd;max-width:44em}
 .strip-eyebrow.left{text-align:left}
@@ -514,7 +514,7 @@ body.hero-in-view .sticky-cta{display:none}
 .chip:hover{background:var(--gold);border-color:var(--gold);color:#0b0a08}
 .text-link.on-dark{color:var(--gold-l)}
 .text-link.on-dark:hover{color:#fff}
-.coverage-art{width:min(100%,320px);justify-self:center;color:rgba(227,200,135,.34)}
+.coverage-map{justify-self:end;width:100%}.coverage-map-img{display:block;mix-blend-mode:lighten;width:100%;height:auto;aspect-ratio:1672/941;filter:sepia(.22) saturate(.78) brightness(.96);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent),linear-gradient(180deg,transparent,#000 4%,#000 96%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent),linear-gradient(180deg,transparent,#000 4%,#000 96%,transparent);mask-composite:intersect}
 .eyebrow-s{font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-t);margin:0 0 12px}
 body.km .eyebrow-s{letter-spacing:0;text-transform:none;font-size:14px}
 .why-n{display:block;font:500 40px/1 var(--serif);color:var(--gold-t);margin-bottom:12px}
@@ -563,7 +563,7 @@ body.km .mail-block h3{font-family:var(--khmer)}
 .pending-text{margin:0;color:var(--muted);font-style:italic}
 /* Global Destination: one warm, consistent treatment over the illustrative photographs */
 .dmc-img{position:relative}
-.dmc-img img{filter:saturate(.88) sepia(.12) contrast(1.02)}
+.dmc-img img{filter:sepia(.22) saturate(.78) brightness(.96) sepia(.12) contrast(1.02)}
 .dmc-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(201,162,77,.1),rgba(10,9,8,.18));mix-blend-mode:multiply;pointer-events:none}
 /* ---- footer ---- */
 .footer-top{grid-template-columns:1.2fr .9fr 1.4fr .8fr}
@@ -579,7 +579,6 @@ body.km .foot-h{letter-spacing:0;text-transform:none;font-size:14px}
 /* ---- responsive ---- */
 @media(max-width:1100px){
  .tile-grid{grid-template-columns:repeat(2,1fr)}
- .coverage-in{grid-template-columns:1fr}.coverage-art{display:none}
  .steps3{grid-template-columns:repeat(2,1fr)}
  .footer-top{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}
 }
@@ -699,6 +698,12 @@ body.km[data-page=terms-and-conditions] .tagline{letter-spacing:0;text-transform
 @media(max-width:600px){.reason-list{grid-template-columns:1fr}.reason-list li{border-right:0;margin-right:0;padding-right:0}}
 .band-mail{margin-top:14px;font-size:15px;color:#d8d0bd}
 .band-mail a{color:var(--gold-l);border-bottom:1px solid var(--gold);font-weight:600}
+
+/* Phase 3D: gold map layout */
+@media(max-width:1100px) and (min-width:861px){.coverage-in{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}}
+@media(max-width:860px){.coverage-in{grid-template-columns:1fr}.coverage-map{justify-self:center;max-width:720px}}
+@media(max-width:600px){.coverage-map{margin-left:calc(var(--gut) * -1);margin-right:calc(var(--gut) * -1);width:auto;max-width:none}}
+.band-mail a,.band-mail{overflow-wrap:anywhere}
 
 /* preview bundle: photo credits (footer) */
 .credits{max-width:1640px;margin:18px auto 0;color:#b5ad98;font-size:13px}.credits summary{cursor:pointer;color:#e3c887;display:inline-block;padding:6px 0}.credits summary:focus-visible{outline:3px solid #c9a24d;outline-offset:3px}.credits p{margin:6px 0 8px;color:#b5ad98;max-width:none}.credits ul{margin:0;padding:0;list-style:none;columns:3 280px;column-gap:28px}.credits li{padding:2px 0;break-inside:avoid;color:#cfc6b0}.credits .cr-id{color:#8d856f}
