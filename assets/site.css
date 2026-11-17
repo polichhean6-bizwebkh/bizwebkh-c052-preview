@@ -497,7 +497,7 @@ body.km .thumb-l{letter-spacing:0;font-size:12px}
 html:not(.js) .dcard:not(.is-active){display:none}
 html:not(.js) .dcard[data-o="0"]{transform:none;position:relative;left:auto;top:auto;margin:0 auto}
 html:not(.js) .cards{height:auto}
-body.hero-in-view .sticky-cta{display:none}
+body.hero-in-view .sticky-cta,body.map-in-view .sticky-cta{display:none}
 @media(prefers-reduced-motion:reduce){.dcard,.hero3-bg .bg,.dcard-cap{transition:none}}
 /* ---- home: tiles, coverage, reasons, news preview ---- */
 .tile-grid{grid-template-columns:repeat(4,1fr);gap:18px}

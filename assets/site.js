@@ -60,6 +60,11 @@
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (en) { document.body.classList.toggle('hero-in-view', en[0].isIntersecting); }, { threshold: 0.35 }).observe(root);
   }
+  /* ...and while the gold world map is on screen, so the bar never covers the map labels */
+  var wm = document.querySelector('.coverage-map');
+  if (wm && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) { document.body.classList.toggle('map-in-view', en[0].isIntersecting); }, { threshold: 0 }).observe(wm);
+  }
 })();
 
 (function () {
