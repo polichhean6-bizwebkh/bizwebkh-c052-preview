@@ -816,11 +816,10 @@ body.km .n3-card h3{font-family:var(--khmer)}
 .about-hero h1 span{display:block}
 .about-hero .hero3-logo{width:clamp(130px,12vw,200px)}
 .letter{max-width:1640px}
-.letter-in{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(28px,6vw,90px);align-items:start}
+.letter-in{display:block}
 .letter-text p{font:400 clamp(17px,1.35vw,19px)/1.85 var(--arial);color:var(--ink);max-width:46em;margin:0 0 22px}
 body.km .letter-text p{font-family:var(--khmer);line-height:2}
 .letter-text .l-sincerely{margin-bottom:8px}.letter-text .l-sign{margin:0;line-height:1.5}.letter-text .l-sign strong{font-weight:700}
-.letter-img{aspect-ratio:4/5;position:sticky;top:24px}
 .proc3{background:radial-gradient(ellipse at 15% 0%,rgba(201,162,77,.14),transparent 55%),#060605;border-top:1px solid var(--gold);padding:clamp(56px,7vw,110px) var(--gut)}
 .proc-in{max-width:1640px;margin:auto}
 .proc3 .eyebrow-s{color:var(--gold);font-weight:700;letter-spacing:.3em}
@@ -848,7 +847,7 @@ body.km .proc-list h3,body.km .proc-list p{font-family:var(--khmer)}
 @media(max-width:900px){
  .hero3-line:nth-of-type(n+2){display:block}
  .hero3-lines{display:flex;flex-wrap:wrap;gap:0 .4em}.hero3-line{font-size:16px;line-height:1.5}
- .ap-in,.letter-in,.n3-grid{grid-template-columns:1fr}.ap-img{aspect-ratio:16/11}.letter-img{position:relative;top:0;aspect-ratio:16/10}
+ .ap-in,.n3-grid{grid-template-columns:1fr}.ap-img{aspect-ratio:16/11}
  .visa3 .coverage-in{grid-template-columns:1fr}
 }
 @media(max-width:700px){.v3-cards{grid-template-columns:1fr}}
@@ -1091,6 +1090,52 @@ body.km .gd-body h3{font-family:var(--khmer);font-size:21px;line-height:1.45}
 @media(max-width:1100px){.gd-main{grid-template-columns:repeat(2,1fr)}.gd-more{grid-template-columns:1fr}}
 @media(max-width:720px){.gd-main,.gd-more{grid-template-columns:1fr}.gd-main .gd-img{aspect-ratio:4/3}.gd-more .gd-card{flex-direction:column}.gd-more .gd-img{flex:none;aspect-ratio:4/3;min-height:0}.gd-shape{grid-template-columns:1fr}.gd-body h3{font-size:24px}}
 body.km .gd-body .text-link{font-size:16px}
+
+/* ===== Client feedback #01: English section titles in Arial (scoped; Khmer keeps Noto Sans Khmer) =====
+   Applies to section-level h2 headings only. Excluded: h1 hero/page titles, hero card titles (.dcard-title),
+   card/sub-headings (h3), step numerals, logo, slogan, navigation, body text. */
+body:not(.km) :is(.section-head h2,.ap-copy h2,.proc3 h2,.band-in h2,.partners h2,.vmp h2,.tours-copy h2,.empty-card h2,.terms-list h2,.contact-details h2,#form-title){font-family:Arial,Helvetica,sans-serif;font-weight:700;line-height:1.12}
+body:not(.km) :is(.ap-copy h2,.proc3 h2) span{font-family:inherit;font-weight:inherit}
+
+/* ===== Client feedback #02 (revision 2): FOUR REASONS heading sized to the owner's targets (size, tracking and spacing only; font, case, colour, alignment unchanged) ===== */
+.r4-big{font-size:clamp(40px,3.334vw,52px);letter-spacing:.12em;margin-right:-.12em;line-height:1.1}
+.r4-sub{font-size:22px;margin-top:8px}
+.reasons4{padding-top:clamp(36px,4vw,60px)}
+.reasons4 .orn{margin:18px auto clamp(22px,3vw,38px)}
+body.km .r4-big{font-size:clamp(32px,2.65vw,40px)}
+body.km .r4-sub{font-size:20px}
+@media(max-width:1100px){.r4-sub{font-size:20px}}
+@media(max-width:600px){.r4-big{font-size:clamp(25px,calc(11.3px + 4.29vw),38px);letter-spacing:.12em;margin-right:-.12em}.r4-sub{font-size:17px}body.km .r4-big{font-size:clamp(24px,6.2vw,32px)}body.km .r4-sub{font-size:18px}}
+
+/* ===== Home hero: "the world" in gold with a subtle static shine (styling only; wording, size, line breaks unchanged) ===== */
+.hero3-h1 .hl-world{display:inline-block;white-space:nowrap;color:#e3c887;text-shadow:none}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+.hero3-h1 .hl-world{background-image:linear-gradient(172deg,#fff3c9 0%,#f0d791 30%,#d9b964 58%,#ecd28d 82%,#f8e8b4 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;padding:0 .04em;filter:drop-shadow(0 0 10px rgba(227,200,135,.30)) drop-shadow(0 2px 8px rgba(0,0,0,.65))}
+}
+
+/* ===== About Us opening: wide Angkor Wat image under the header, text below (client sample); no overlay text ===== */
+.about-top{margin:0;padding:0;background:#000;border-bottom:1px solid var(--gold)}
+.about-top-img{margin:0;line-height:0}
+.about-top-img img{display:block;width:100%;height:auto;aspect-ratio:2000/858;object-fit:cover;object-position:48% 50%;max-height:clamp(260px,44vw,640px)}
+@media(max-width:600px){.about-top-img img{aspect-ratio:4/3;max-height:none}}
+
+/* ===== About Us (client feedback #04): golden Angkor Wat banner; company introduction full width, text only ===== */
+.about-top-img img{object-position:50% 50%}
+.letter-text p{max-width:none;font-size:clamp(17px,1.4vw,21px);line-height:1.8}
+
+/* ===== Client feedback #05: About Us four-step process heading, English only: Arial Bold (already set by #01) at a calmer size ===== */
+body:not(.km) .proc3 h2{font-size:clamp(34px,4.2vw,62px);line-height:1.12}
+
+/* ===== Client feedback #05B: About Us process numbers 01-04 in Arial Bold (both languages, Latin digits); gold colour and layout unchanged ===== */
+.proc-n,body.km .proc-n{font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:clamp(48px,4.8vw,70px);line-height:1;letter-spacing:-.02em;font-variant-numeric:lining-nums}
+@media(max-width:600px){.proc-n,body.km .proc-n{font-size:48px}}
+
+/* ===== Client feedback #06: four card headings in Arial Bold, English only (Home Breaking News cards, About Us service cards) ===== */
+body:not(.km) :is(.n3-card h3,.line h3){font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:clamp(22px,2.1vw,30px);line-height:1.2}
+
+/* ===== Client feedback #07: Global Destination card titles in Arial Bold, English only (six destination cards, four service cards); page hero untouched ===== */
+body:not(.km) .gd-body h3{font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:clamp(21px,1.8vw,26px);line-height:1.2}
+body:not(.km) .dmc-card h3{font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:clamp(22px,2vw,29px);line-height:1.2}
 
 /* preview bundle: photo credits (footer) */
 .credits{max-width:1640px;margin:18px auto 0;color:#b5ad98;font-size:13px}.credits summary{cursor:pointer;color:#e3c887;display:inline-block;padding:6px 0}.credits summary:focus-visible{outline:3px solid #c9a24d;outline-offset:3px}.credits p{margin:6px 0 8px;color:#b5ad98;max-width:none}.credits ul{margin:0;padding:0;list-style:none;columns:3 280px;column-gap:28px}.credits li{padding:2px 0;break-inside:avoid;color:#cfc6b0}.credits .cr-id{color:#8d856f}
