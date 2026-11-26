@@ -1137,5 +1137,8 @@ body:not(.km) :is(.n3-card h3,.line h3){font-family:Arial,Helvetica,sans-serif;f
 body:not(.km) .gd-body h3{font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:clamp(21px,1.8vw,26px);line-height:1.2}
 body:not(.km) .dmc-card h3{font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:clamp(22px,2vw,29px);line-height:1.2}
 
+/* ===== Client feedback #08: Home "Popular visa destinations" country titles in Arial Bold (English only; Khmer keeps Noto Sans Khmer) ===== */
+body:not(.km) .dest-cap strong{font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:clamp(18px,1.7vw,24px);line-height:1.15}
+
 /* preview bundle: photo credits (footer) */
 .credits{max-width:1640px;margin:18px auto 0;color:#b5ad98;font-size:13px}.credits summary{cursor:pointer;color:#e3c887;display:inline-block;padding:6px 0}.credits summary:focus-visible{outline:3px solid #c9a24d;outline-offset:3px}.credits p{margin:6px 0 8px;color:#b5ad98;max-width:none}.credits ul{margin:0;padding:0;list-style:none;columns:3 280px;column-gap:28px}.credits li{padding:2px 0;break-inside:avoid;color:#cfc6b0}.credits .cr-id{color:#8d856f}
