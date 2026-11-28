@@ -705,7 +705,7 @@ body.km[data-page=terms-and-conditions] .tagline{letter-spacing:0;text-transform
 @media(max-width:600px){.coverage-map{margin-left:calc(var(--gut) * -1);margin-right:calc(var(--gut) * -1);width:auto;max-width:none}}
 .band-mail a,.band-mail{overflow-wrap:anywhere}
 
-/* ===== Phase 3G: consolidated client revision (Home, About Us, footer). Source of truth: qa/C052-PHASE3G-CONSOLIDATED-FEEDBACK-MATRIX.md ===== */
+/* ===== Phase 3G: consolidated client revision (Home, About Us, footer). Source of truth: the Phase 3G consolidated feedback matrix (internal) ===== */
 @font-face{font-family:'Anton';font-weight:400;font-display:swap;src:url(fonts/Anton-400.woff2) format('woff2')}
 @font-face{font-family:'Great Vibes';font-weight:400;font-display:swap;src:url(fonts/GreatVibes-400.woff2) format('woff2')}
 :root{--impact:'Anton',Impact,'Arial Narrow',sans-serif;--arial:Arial,'Liberation Sans',Helvetica,sans-serif;--script:'Great Vibes','Snell Roundhand',cursive}
