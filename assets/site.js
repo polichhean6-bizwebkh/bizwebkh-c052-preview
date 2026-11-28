@@ -128,3 +128,92 @@
   document.getElementById('preview-submit').addEventListener('click', run);
   form.addEventListener('keydown', function (e) { if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); run(); } });
 })();
+
+/* Top 10 Global Destinations map (Global Destination page): click or tap opens the enlarged map in a native <dialog>.
+ * Closes with the close button, Escape, or a click outside the map; focus returns to the map button. On small screens the
+ * enlarged map is wider than the screen and can be panned, so the country names are readable. No network requests. */
+(function () {
+  var btn = document.querySelector('.map-zoom');
+  var dlg = document.querySelector('.map-lightbox');
+  if (!btn || !dlg || typeof dlg.showModal !== 'function') { if (btn) btn.style.cursor = 'default'; return; }
+  var closeBtn = dlg.querySelector('.map-lb-close');
+  var scroller = dlg.querySelector('.map-lb-scroll');
+  function open() {
+    dlg.showModal();
+    document.body.classList.add('map-lb-open');
+    if (scroller) { scroller.scrollLeft = 0; scroller.scrollTop = 0; }
+    if (closeBtn) closeBtn.focus();
+  }
+  btn.addEventListener('click', open);
+  closeBtn.addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) {
+    var t = e.target;
+    if (t === dlg || t.classList.contains('map-lb-stage') || t === scroller) dlg.close();
+  });
+  dlg.addEventListener('close', function () {
+    document.body.classList.remove('map-lb-open');
+    btn.focus();
+  });
+})();
+
+/* Tour Packages banner: on phones (700px and below) the whole banner is shown uncropped; tapping it opens the full-size banner in a native <dialog>
+ * (pan to read; Esc, the close button or a tap outside closes it; focus returns to the banner). On larger screens the banner is a plain image. */
+(function () {
+  var btn = document.querySelector('.tp-banner-zoom');
+  var dlg = document.querySelector('.tpb-lightbox');
+  if (!btn || !dlg || typeof dlg.showModal !== 'function') return;
+  var mq = window.matchMedia('(max-width: 700px)');
+  var closeBtn = dlg.querySelector('.map-lb-close');
+  var scroller = dlg.querySelector('.map-lb-scroll');
+  function sync() { if (mq.matches) { btn.removeAttribute('tabindex'); btn.removeAttribute('aria-hidden'); } else { btn.setAttribute('tabindex', '-1'); btn.setAttribute('aria-hidden', 'true'); if (dlg.open) dlg.close(); } }
+  sync();
+  if (mq.addEventListener) mq.addEventListener('change', sync);
+  btn.addEventListener('click', function () {
+    if (!mq.matches) return;
+    dlg.showModal();
+    document.body.classList.add('map-lb-open');
+    if (scroller) { scroller.scrollTop = 0; scroller.scrollLeft = Math.max(0, 0.4 * 1100 - scroller.clientWidth / 2); }
+    closeBtn.focus();
+  });
+  closeBtn.addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { var t = e.target; if (t === dlg || t.classList.contains('map-lb-stage') || t === scroller) dlg.close(); });
+  dlg.addEventListener('close', function () { document.body.classList.remove('map-lb-open'); if (mq.matches) btn.focus(); });
+})();
+
+/* Tour Packages: the two client images under the banner each open complete in their own native <dialog> (click or tap). Esc, the close button or a click
+ * outside closes it; focus returns to the image that opened it. On phones the enlarged image is 760px wide inside a pannable area (portrait image scrolls vertically). */
+(function () {
+  [].slice.call(document.querySelectorAll('.tp-j-zoom')).forEach(function (btn) {
+    var dlg = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!dlg || typeof dlg.showModal !== 'function') { btn.style.cursor = 'default'; return; }
+    var closeBtn = dlg.querySelector('.map-lb-close');
+    var scroller = dlg.querySelector('.map-lb-scroll');
+    btn.addEventListener('click', function () {
+      dlg.showModal();
+      document.body.classList.add('map-lb-open');
+      if (scroller) { scroller.scrollTop = 0; scroller.scrollLeft = Math.max(0, (scroller.scrollWidth - scroller.clientWidth) / 2); }
+      closeBtn.focus();
+    });
+    closeBtn.addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { var t = e.target; if (t === dlg || t.classList.contains('map-lb-stage') || t === scroller) dlg.close(); });
+    dlg.addEventListener('close', function () { document.body.classList.remove('map-lb-open'); btn.focus(); });
+  });
+})();
+
+/* Tour Packages page: "Explore by destination" filter (behaviour as in Demo B: default All destinations, ?destination=Name pre-selects,
+ * choosing All destinations resets, no match shows the empty message). Without JavaScript the filter is hidden and all six cards show. */
+(function () {
+  var sel = document.getElementById('tp-filter');
+  if (!sel) return;
+  var cards = [].slice.call(document.querySelectorAll('.tp-card'));
+  var empty = document.getElementById('tp-empty');
+  var q = new URLSearchParams(location.search).get('destination');
+  if (q) { for (var i = 0; i < sel.options.length; i++) { if (sel.options[i].value === q) { sel.value = q; break; } } }
+  function update() {
+    var v = sel.value, shown = 0;
+    cards.forEach(function (c) { var m = !v || c.getAttribute('data-destination') === v; c.hidden = !m; if (m) shown++; });
+    if (empty) empty.hidden = shown > 0;
+  }
+  sel.addEventListener('change', update);
+  update();
+})();
