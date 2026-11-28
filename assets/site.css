@@ -708,7 +708,8 @@ body.km[data-page=terms-and-conditions] .tagline{letter-spacing:0;text-transform
 /* ===== Phase 3G: consolidated client revision (Home, About Us, footer). Source of truth: the Phase 3G consolidated feedback matrix (internal) ===== */
 @font-face{font-family:'Anton';font-weight:400;font-display:swap;src:url(fonts/Anton-400.woff2) format('woff2')}
 @font-face{font-family:'Great Vibes';font-weight:400;font-display:swap;src:url(fonts/GreatVibes-400.woff2) format('woff2')}
-:root{--impact:'Anton',Impact,'Arial Narrow',sans-serif;--arial:Arial,'Liberation Sans',Helvetica,sans-serif;--script:'Great Vibes','Snell Roundhand',cursive}
+:root{--impact:'Anton',Impact,'Arial Narrow',sans-serif;--arial:Arial,'Liberation Sans',Helvetica,sans-serif;--script:'Great Vibes','Snell Roundhand',cursive;--slogan-k:1.4326}
+/* Feedback #23: footer slogan size. The approved design mockup sets the English slogan in a wider script font that cannot be published; the published font is Great Vibes, whose glyphs are about 30% narrower at the same font-size (measured 578.5px vs 403.8px at 1440px, ratio 1.4326). --slogan-k scales the English slogan font-size to the mockup's rendered width. Khmer is unaffected. */
 body.km{--impact:'Noto Sans Khmer','Anton',sans-serif;--arial:'Noto Sans Khmer',Arial,sans-serif}
 .pc{border-bottom:1.5px dashed var(--gold);background:rgba(201,162,77,.16);padding:0 3px;border-radius:2px}
 .pc-tag{display:inline-block;margin:8px 0 0;padding:3px 10px;border:1px dashed var(--gold);border-radius:999px;font:600 11px/1.5 var(--arial);letter-spacing:.1em;text-transform:uppercase;color:var(--gold-l);background:rgba(201,162,77,.1);max-width:none}
@@ -1051,11 +1052,11 @@ body.km .ft5 .footer-bottom,body.km .ft5 .footer-bottom a{font-family:var(--khme
 /* ===== Phase 3H-7: slogan on one line between logo and QR; no Terms link in the footer ===== */
 .ft5-brandcell{grid-column:1/3;grid-row:2;align-self:center;display:flex;align-items:center;gap:clamp(20px,3vw,48px);min-width:0}
 .ft5-brandcell .ft5-logo{grid-column:auto;grid-row:auto;flex:none}
-.ft5 .ft5-brandcell .foot-slogan.ft5-slogan{grid-column:auto;grid-row:auto;flex:1 1 auto;min-width:0;text-align:center;white-space:nowrap;font-size:clamp(22px,2.05vw,30px)}
+.ft5 .ft5-brandcell .foot-slogan.ft5-slogan{grid-column:auto;grid-row:auto;flex:1 1 auto;min-width:0;text-align:center;white-space:nowrap;font-size:calc(clamp(22px,2.05vw,30px)*var(--slogan-k))}
 body.km .ft5 .ft5-brandcell .foot-slogan.ft5-slogan{white-space:normal;font-size:clamp(18px,1.6vw,22px)}
 .ft5 .footer-bottom{justify-content:flex-start}
-@media(max-width:1100px){.ft5-brandcell{grid-column:1/-1;grid-row:auto}.ft5 .ft5-brandcell .foot-slogan.ft5-slogan{font-size:clamp(26px,2.9vw,30px);text-align:center}}
-@media(max-width:700px){.ft5-brandcell{flex-direction:column;align-items:flex-start;gap:12px}.ft5 .ft5-brandcell .foot-slogan.ft5-slogan{white-space:normal;text-align:left;font-size:clamp(30px,8.6vw,38px);margin-top:-4px}}
+@media(max-width:1100px){.ft5-brandcell{grid-column:1/-1;grid-row:auto}.ft5 .ft5-brandcell .foot-slogan.ft5-slogan{font-size:calc(clamp(26px,2.9vw,30px)*var(--slogan-k));text-align:center}}
+@media(max-width:700px){.ft5-brandcell{flex-direction:column;align-items:flex-start;gap:12px}.ft5 .ft5-brandcell .foot-slogan.ft5-slogan{white-space:normal;text-align:left;font-size:calc(clamp(30px,8.6vw,38px)*var(--slogan-k));margin-top:-4px}}
 
 /* ===== Global Destination: six-destination showcase ===== */
 .gd .section-head{margin-bottom:8px}
@@ -1300,6 +1301,8 @@ body:not(.km) .tpd-main :is(h2,h3),body:not(.km) .tpd-aside h3{font-family:Arial
 
 /* ===== Client feedback #22: eight country cards (photo, country name, the client's contact sentence; no duration, price or description). ===== */
 .tp-contact{color:var(--muted);font-size:15px;line-height:1.5}
+/* Feedback #23: between 701px and 765px the enlarged English slogan is wider than its column; let it wrap there instead of overflowing. */
+@media(min-width:701px) and (max-width:765px){body:not(.km) .ft5 .ft5-brandcell .foot-slogan.ft5-slogan{white-space:normal}}
 
 /* preview bundle: photo credits (footer) */
 .credits{max-width:1640px;margin:18px auto 0;color:#b5ad98;font-size:13px}.credits summary{cursor:pointer;color:#e3c887;display:inline-block;padding:6px 0}.credits summary:focus-visible{outline:3px solid #c9a24d;outline-offset:3px}.credits p{margin:6px 0 8px;color:#b5ad98;max-width:none}.credits ul{margin:0;padding:0;list-style:none;columns:3 280px;column-gap:28px}.credits li{padding:2px 0;break-inside:avoid;color:#cfc6b0}.credits .cr-id{color:#8d856f}
